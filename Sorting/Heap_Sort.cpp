@@ -39,8 +39,8 @@ void Max_Heapify (int Arr [] , int i)
 
 void Build_Max_Heap (int Arr [] , int n)
 {
-    heap_size = n;
-    for (int i = n/2 ; i > 0 ; i--)
+    heap_size = n - 1;
+    for (int i = n/2 ; i >= 0 ; i--)
     {
         Max_Heapify (Arr , i);
         count++;
@@ -50,9 +50,9 @@ void Build_Max_Heap (int Arr [] , int n)
 
 void Heap_Sort (int Arr [] , int n)
 {
-    heap_size = n;
+    heap_size = n - 1;
     Build_Max_Heap (Arr , n);
-    for (int i = n ; i > 0 ; i--)
+    for (int i = n - 1 ; i >= 0 ; i--)
     {
         swap (Arr [0] , Arr [i]);
         count++;

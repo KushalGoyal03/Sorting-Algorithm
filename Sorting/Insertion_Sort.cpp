@@ -48,7 +48,7 @@ int main ()
     for (int i = 0 ; i < n ; i++)
     {
         cout << "Enter the " << i + 1 << "th element : ";
-        cin >> Arr [n];
+        cin >> Arr [i];
     }*/
     
     cout << "Array :- ";

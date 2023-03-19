@@ -6,12 +6,12 @@ int count = 0;
 
 int Partition (int Arr [] , int p , int r)
 {
-    int x = Arr [r];
+    int k = Arr [r];
     int i = p - 1;
     
     for (int j = p ; j < r ; j++)
     {
-        if (Arr [j] <= x)
+        if (Arr [j] <= k)
         {
         	i++;
         	count++;
@@ -25,11 +25,11 @@ int Partition (int Arr [] , int p , int r)
     return i + 1;
 }
 
-//This function chose any random integer from array as an pivot element.
+//This function chooses any random integer from the array as a pivot element.
 int Partition_r (int Arr [] , int p , int r)
 {
     srand(time(0));
-    int x = rand () % r;
+    int x = p + rand () % (r - p);
     swap (Arr [r] , Arr [x]);
     return Partition (Arr , p , r);
 }
@@ -39,7 +39,7 @@ void Quick_Sort (int Arr [] , int p , int r)
     if (p < r)
     {
         count++;
-        int q = Partition (Arr , p , r);
+        int q = Partition_r (Arr , p , r);
         Quick_Sort (Arr , p , q - 1);
         Quick_Sort (Arr , q + 1 , r);
     }
@@ -58,7 +58,7 @@ int main ()
     
     //This is for user input.
     /*int n;
-    cout << "Enter the no. of elements you want to insert in your array : ";
+    cout << "Enter the no. of elements you want to insert in your array: ";
     cin >> n;
     int Arr [n];
     
